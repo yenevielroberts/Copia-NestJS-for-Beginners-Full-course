@@ -14,11 +14,15 @@ export class UsersController {
     }
 
     @Get(':id') // GET /users/:id
+    /*
+        @Param('id', ParseIntPipe) tranforma el tipo de dato del parametro a numero
+    */
     findOne(@Param('id', ParseIntPipe) id: number) {
         return this.usersService.findOne(id)
     }
 
     @Post() // POST /users 
+    //Sustituyo el user: [] por el DTO
     create(@Body(ValidationPipe) createUserDto: CreateUserDto) {
         return this.usersService.create(createUserDto)
     }
