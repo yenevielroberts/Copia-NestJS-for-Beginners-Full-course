@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-@Injectable()
+@Injectable() //Attaches metadata to the class
 export class UsersService {
     private users = [
         {
