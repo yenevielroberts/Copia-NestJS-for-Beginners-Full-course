@@ -24,6 +24,7 @@ export class UsersController {
     }
 
     @Patch(':id') // PATCH /users/:id
+
     update(@Param('id', ParseIntPipe) id: number, @Body(ValidationPipe) updateUserDto: UpdateUserDto) {
         return this.usersService.update(id, updateUserDto)
     }
