@@ -10,16 +10,16 @@ import { MyLoggerModule } from './my-logger/my-logger.module';
 
 @Module({
   imports: [
-    UsersModule, 
-    DatabaseModule, 
+    UsersModule, //user module
+    DatabaseModule, //database module
     EmployeesModule,
     ThrottlerModule.forRoot([{
       name: 'short',
-      ttl: 1000,
+      ttl: 1000, // Se hace más de 3 request en un segundo da un error
       limit: 3,
     },{
       name: 'long',
-      ttl: 60000,
+      ttl: 60000,//minuto
       limit: 100,
     }]),
     MyLoggerModule
