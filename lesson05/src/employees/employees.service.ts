@@ -4,8 +4,9 @@ import { DatabaseService } from 'src/database/database.service';
 
 @Injectable()
 export class EmployeesService {
-  constructor(private readonly databaseService: DatabaseService) { }
+  constructor(private readonly databaseService: DatabaseService) { } //Injectamos el database service
 
+  //Los metodos tienen que ser asyn con el database services
   async create(createEmployeeDto: Prisma.EmployeeCreateInput) {
     return this.databaseService.employee.create({
       data: createEmployeeDto
@@ -15,7 +16,7 @@ export class EmployeesService {
   async findAll(role?: Role) {
     if (role) return this.databaseService.employee.findMany({
       where: {
-        role,
+        role, //Cuando el campo y el nombre de la variable tienen el mismo nombre no hace falta ponerlo así: id: id,
       }
     })
     return this.databaseService.employee.findMany()
@@ -34,7 +35,7 @@ export class EmployeesService {
       where: {
         id,
       },
-      data: updateEmployeeDto,
+      data: updateEmployeeDto, //Los nuevos datos
     })
   }
 
