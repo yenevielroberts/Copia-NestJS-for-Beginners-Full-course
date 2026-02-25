@@ -1,7 +1,7 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateUserDto {
-    @IsString()
+    @IsString()// decoradores de la clase class-validator validan los datos. Estamos usando Pipe vilidation
     @IsNotEmpty()
     name: string;
 

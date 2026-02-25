@@ -41,6 +41,7 @@ export class UsersService {
     findAll(role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
         if (role) {
             const rolesArray = this.users.filter(user => user.role === role)
+            //compruebo si se ha enviado un role, ya que es opcional
             if (rolesArray.length === 0) throw new NotFoundException('User Role Not Found')
             return rolesArray
         }
@@ -55,6 +56,7 @@ export class UsersService {
         return user
     }
 
+    //Sustituimos el user:[] por createUserDto: CreateUserDto
     create(createUserDto: CreateUserDto) {
         const usersByHighestId = [...this.users].sort((a, b) => b.id - a.id)
         const newUser = {

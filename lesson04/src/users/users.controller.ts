@@ -22,7 +22,9 @@ export class UsersController {
     }
 
     @Post() // POST /users 
-    //Sustituyo el user: [] por el DTO
+    /*Sustituyo el user: [] por el DTO 
+        @Body(ValidationPipe) validates againts the CreateUserDto
+    */
     create(@Body(ValidationPipe) createUserDto: CreateUserDto) {
         return this.usersService.create(createUserDto)
     }
